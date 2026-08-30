@@ -6,12 +6,16 @@ $firstInput = trim(fgets(STDIN));
 echo "Введите второе число (делитель): ";
 $secondInput = trim(fgets(STDIN));
 
-if (!is_numeric($firstInput) || strpos($firstInput, '.') !== false) {
+function isInteger($value) {
+    return preg_match('/^-?\d+$/', $value) === 1;
+}
+
+if (!isInteger($firstInput)) {
     fwrite(STDERR, "Введите, пожалуйста, число\n");
     exit(1);
 }
 
-if (!is_numeric($secondInput) || strpos($secondInput, '.') !== false) {
+if (!isInteger($secondInput)) {
     fwrite(STDERR, "Введите, пожалуйста, число\n");
     exit(1);
 }
