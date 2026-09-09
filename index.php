@@ -7,7 +7,7 @@ echo "Введите второе число (делитель): ";
 $secondInput = trim(fgets(STDIN));
 
 function isInteger($value) {
-    return preg_match('/^-?\d+$/', $value) === 1;
+    return $value === (string)(int)$value;
 }
 
 if (!isInteger($firstInput)) {
